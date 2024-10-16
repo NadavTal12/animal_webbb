@@ -1,0 +1,29 @@
+[
+  {
+    "uuid": "p001",
+    "name": "Dog Collar",
+    "description": "Adjustable leather collar for dogs",
+    "image": "base64_encoded_image_data",
+    "price": 49.99,
+    "amount_sold": 15,
+    "supplier": "s001"
+  },
+  {
+    "uuid": "p002",
+    "name": "Cat Toy Mouse",
+    "description": "Interactive toy for cats, made with safe materials",
+    "image": "base64_encoded_image_data",
+    "price": 29.99,
+    "amount_sold": 35,
+    "supplier": "s002"
+  },
+  {
+    "uuid": "p003",
+    "name": "Aquarium Filter",
+    "description": "High-quality filter for medium-sized aquariums",
+    "image": "base64_encoded_image_data",
+    "price": 149.99,
+    "amount_sold": 10,
+    "supplier": "s003"
+  }
+]

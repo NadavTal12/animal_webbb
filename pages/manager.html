@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="he">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PetStore</title>
+		<link rel="stylesheet" type="text/css" href="/styles/css-reset.css">
+		<link rel="stylesheet" type="text/css" href="/styles/common.css">
+		<link rel="stylesheet" type="text/css" href="/styles/manager.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	</head>
+
+	<body>
+		<header id="header"></header>
+
+		<main>
+			<!-- דף מנהל -->
+			<section id="manager" class="hidden">
+				<h1>מנהל</h1>
+				<div class="manager-info">
+					<p>שם: <span id="managerName">...טוען</span> <button class="edit-btn" id="edit-name-btn"><i class="fas fa-pencil-alt"></i> עריכה</button></p>
+					<p>מייל: <span id="managerEmail">...טוען</span> <button class="edit-btn" id="edit-email-btn"><i class="fas fa-pencil-alt"></i> עריכה</button></p>
+					<p>כתובת: <span id="managerAddress">...טוען</span> <button class="edit-btn" id="edit-address-btn"><i class="fas fa-pencil-alt"></i> עריכה</button></p>
+				</div>
+				<div class="manager-orders">
+					<h2>היסטורית ההזמנות שלך</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>שם משתמש</th>
+								<th>תאריך הזמנה</th>
+								<th>כמות מוצרים</th>
+								<th>כמות יחידות</th>
+								<th>פירוט מוצרים</th> 
+								<th>כתובת למשלוח</th>
+								<th>סטטוס הזמנה</th>
+								<th>סכום ההזמנה</th>
+								<th>אישור הזמנה</th>
+							</tr>
+						</thead>					
+						<tbody>
+							<!-- הזמנות ייטענו כאן -->
+							<tr>
+								<td colspan="3">...טוען</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<div class="manager-users">
+					<h2>פרטי כל המשתמשים</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>שם משתמש</th>
+								<th>מייל</th>
+								<th>כתובת</th>
+								<th>מנהל</th>
+								<th>פעולות</th>
+							</tr>
+						</thead>
+						<tbody id="usersTableBody">
+							<!-- פרטי המשתמשים ייטענו כאן -->
+						</tbody>
+					</table>
+				</div>				
+			</section>
+		</main>
+        
+		<footer id="footer"></footer>
+
+		<script src="/scripts.js"></script>
+		<script src="/manager.js"></script>
+	</body>
+</html>

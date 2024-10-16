@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אודות ויצירת קשר - PetStore</title>
+    <link rel="stylesheet" href="/styles/css-reset.css" />
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/about-and-contact.css"> <!-- Merged CSS -->
+</head>
+<body>
+    <header id="header"></header>
+
+    <section id="about-contact-wrapper">
+        <div id="about-us">
+            <h1>אודות החנות שלנו</h1>
+            <p>
+                חנות הציוד לחיות מחמד שלנו הוקמה מתוך אהבה אמיתית לחיות. אנו מחויבים לספק את המוצרים והשירותים הטובים ביותר לחיות המחמד שלכם.
+                בין אם אתם מחפשים מזון איכותי, צעצועים מהנים או ציוד מקצועי לטיפול, אנחנו כאן כדי להבטיח שחיית המחמד שלכם תקבל את הטוב ביותר.
+            </p>
+            <p>
+                הצוות שלנו מורכב מאנשים מקצועיים בתחום טיפול בחיות מחמד, ואנחנו גאים במתן ייעוץ ושירות לקוחות ברמה הגבוהה ביותר.
+            </p>
+
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27044.568669365493!2d34.78234750272447!3d32.08084781599703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4b7896964c3f%3A0x99eb105fca6df4d0!2z16TXqNeg16Yn15k!5e0!3m2!1siw!2sil!4v1727342656831!5m2!1siw!2sil" 
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+
+        <div id="contact-us">
+            <h2>צור קשר</h2>
+            <p>
+                אם יש לכם שאלות, בקשות או הצעות, נשמח לעמוד לשירותכם. מלאו את הטופס למטה או צרו איתנו קשר באמצעות הפרטים הבאים.
+            </p>
+            <div class="contact-info">
+                <p><strong>טלפון:</strong> 037-777777</p>
+                <p><strong>דוא"ל:</strong> contact@petsupply.com</p>
+                <p><strong>כתובת:</strong> רחוב חיות מחמד 123, עיר, מדינה</p>
+            </div>
+
+            <form id="contact-form" action="/submit_contact" method="POST">
+                <label for="name">שם:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">דוא"ל:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">הודעה:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit" class="btn">שלח הודעה</button>
+            </form>
+        </div>
+    </section>
+
+    <footer id="footer"></footer>
+    <script src="/scripts.js"></script>
+    <script src="/abour-and-contact.js"></script>
+
+    
+</body>
+</html>

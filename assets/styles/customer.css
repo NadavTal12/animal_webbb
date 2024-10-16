@@ -1,0 +1,52 @@
+/* עיצוב הפרופיל של המשתמש */
+#profile {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.profile-info {
+    margin-bottom: 30px;
+}
+
+.profile-info p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* עיצוב הטבלה של ההזמנות */
+.profile-orders table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.profile-orders th, .profile-orders td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.profile-orders th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.profile-orders tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.profile-orders tr:hover {
+    background-color: #ddd;
+}
+
+.edit-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.edit-btn i {
+    margin-left: 5px;
+}

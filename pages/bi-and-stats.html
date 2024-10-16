@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetStore</title>
+    <link rel="stylesheet" type="text/css" href="/styles/css-reset.css">
+    <link rel="stylesheet" type="text/css" href="/styles/common.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script> <!-- טעינת D3.js -->
+</head>
+
+<body>
+    <header id="header"></header>
+    <main>
+        <!-- דף BI -->
+        <section id="bi">
+            <h1>גרפים BI</h1>
+            <div class="chart-container">
+                <h2>מכירות לפי ספק</h2>
+                <div id="chart1"></div>
+
+                <h2>המוצרים הנמכרים ביותר</h2>
+                <div id="chart2"></div>
+
+                <h2>מכירות לפי חנות</h2>
+                <div id="chart3"></div>
+            </div>
+        </section>
+    </main>
+    <footer id="footer"></footer>
+
+    <script src="/scripts.js"></script>
+    <script src="/bi-and-stats.js"></script>
+</body>
+</html>

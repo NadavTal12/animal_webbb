@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation</title>
+    <link rel="stylesheet" href="/styles/css-reset.css" />
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/confirmation.css"> 
+</head>
+<body>
+    <header id="header"></header>
+
+    <section id="confirmation-wrapper">
+        <h1 id="greeting"></h1>
+        <p id="order-date"></p>
+        <p id="store-address"></p>
+        <p id="shipping-address"></p>
+
+        <table id="order-products">
+            <thead>
+                <tr>
+                    <th>מוצר</th>
+                    <th>כמות</th>
+                    <th>מחיר ליחידה</th>
+                    <th>סך הכל</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- כאן יופיעו המוצרים שהוזמנו -->
+            </tbody>
+        </table>
+
+        <p id="order-total"></p>
+        <p id="confirmation-email"></p>
+        
+        <!-- הוספת הכפתור לחזרה לדף הראשי -->
+        <button id="back-to-home-btn" class="primary-btn">דף ראשי</button>
+        <!-- הוספת הכפתור לחזרה לדף אזור אישי -->
+        <button id="back-to-cust-btn" class="primary-btn">אזור אישי</button>
+    </section>
+
+    <footer id="footer"></footer>
+
+    <script src="/scripts.js"></script>
+    <script src="/confirmation.js"></script>
+</body>
+</html>

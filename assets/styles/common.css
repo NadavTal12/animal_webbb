@@ -1,0 +1,140 @@
+body {
+    margin: 0; 
+    padding: 0; 
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    color: #252C2D;
+    line-height: 1.4;
+}
+
+header {
+    background-color: #252C2D; 
+    color: #FFFFFF; 
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+nav li {
+    margin: 10px;
+}
+
+nav a {
+    color: #f2ffe9; 
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #8FA090; 
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .dropbtn {
+    padding: 10px 15px;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #f2ffe9; 
+    text-decoration: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #F4F9F1; 
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content li {
+    list-style: none;
+}
+
+.dropdown-content li a {
+    padding: 12px 16px;
+    display: block;
+    color: #252C2D; 
+    text-decoration: none;
+    text-align: right;
+}
+
+.dropdown-content li a:hover {
+    background-color: #C9DFB9; 
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #8FA090; 
+    color: white;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 0.3rem 0.6rem 0.3rem 1rem;
+    border-radius: 30px;
+    border: 1px solid #C9DFB9; 
+    background-color: #FFFFFF; 
+    width: 140px;
+    transition: width 0.3s ease-in-out;
+}
+
+.search-input:focus {
+    width: 200px;
+    border-color: #8FA090; 
+}
+
+.search-input::placeholder {
+    color: #666;
+}
+
+footer {
+    background-color: #252C2D; 
+    color: #FFFFFF; 
+    text-align: right;
+    padding: 12px 0 20px 0;
+}
+
+.footer-wrapper {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-wrapper div {
+    flex: 1;
+}
+
+.footer-wrapper a {
+    color: #FFFFFF; 
+    text-decoration: none;
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "uuid": "s001",
+    "address": "1 Dizengoff St, Tel Aviv",
+    "inventory": [
+      { "product_uuid": "p001", "amount_in_stock": 50 },
+      { "product_uuid": "p002", "amount_in_stock": 75 }
+    ]
+  },
+  {
+    "uuid": "s002",
+    "address": "10 HaYarkon St, Tel Aviv",
+    "inventory": [
+      { "product_uuid": "p003", "amount_in_stock": 30 }
+    ]
+  }
+]

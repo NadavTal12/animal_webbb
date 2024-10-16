@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="/styles/css-reset.css" />
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/payment.css"> 
+</head>
+<body>
+    <header id="header"></header>
+
+    <section id="payment-wrapper">
+        <h1>תשלום עבור ההזמנה</h1>
+
+        <form id="payment-form">
+            <div class="form-group">
+                <label for="shipping-address-input">כתובת למשלוח:</label>
+                <input type="text" id="shipping-address-input" placeholder="הזן כתובת למשלוח" required />
+            </div>
+
+            <div class="form-group">
+                <label for="store-select">בחר חנות:</label>
+                <select id="store-select">
+                    <!-- החנויות ייטענו כאן אוטומטית -->
+                    <option value="">בחר חנות</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="card-holder">שם בעל הכרטיס:</label>
+                <input type="text" id="card-holder" placeholder="הזן שם בעל הכרטיס" required />
+            </div>
+
+            <div class="form-group">
+                <label for="card-number">מספר כרטיס אשראי:</label>
+                <input type="text" id="card-number" placeholder="הזן מספר כרטיס" required />
+            </div>
+
+            <div class="form-group">
+                <label for="card-expiry">תוקף כרטיס (MM/YY):</label>
+                <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" required />
+            </div>
+
+            <div class="form-group">
+                <label for="card-cvv">CVV:</label>
+                <input type="text" id="card-cvv" placeholder="CVV" maxlength="3" required />
+            </div>
+
+            <button type="submit" class="btn primary-btn">אישור תשלום</button>
+        </form>
+    </section>
+
+    <footer id="footer"></footer>
+
+    <script src="/scripts.js"></script>
+    <script src="/payment.js"></script>
+</body>
+</html>

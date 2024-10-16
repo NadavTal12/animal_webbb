@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up - PetStore</title>
+    <link rel="stylesheet" href="/styles/css-reset.css" />
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/login-signup.css"> <!-- Login/Signup-specific CSS -->
+</head>
+<body>
+    <header id="header"></header>
+
+    <section id="auth-wrapper">
+        <div class="auth-container">
+            <div class="auth-buttons hidden">
+                <button id="login-btn" class="active" onclick="toggleForm('login')">התחברות</button>
+                <button id="signup-btn" onclick="toggleForm('signup')">הרשמה</button>
+            </div>
+
+            <form id="login-form" class="auth-form">
+                <h2>התחברות</h2>
+                <label for="login-email">דוא"ל:</label>
+                <input type="email" id="login-email" name="email" placeholder="Email Address" required>
+
+                <label for="login-password">סיסמה:</label>
+                <input type="password" id="login-password" name="password" placeholder="Password" required>
+
+                <a href="#" class="forgot-password">שכחת סיסמה?</a>
+
+                <button type="submit" class="btn primary-btn">התחבר</button>
+
+                <p class="switch-option">לא רשום? <a href="#" onclick="toggleForm('signup')">הרשמה עכשיו</a></p>
+            </form>
+
+            <form id="signup-form" class="auth-form hidden">
+                <h2>הרשמה</h2>
+            
+                <!-- שדה שם מלא חדש -->
+                <label for="signup-name">שם מלא:</label>
+                <input type="text" id="signup-name" name="name" placeholder="Full Name" required>
+            
+                <label for="signup-email">דוא"ל:</label>
+                <input type="email" id="signup-email" name="email" placeholder="Email Address" required>
+            
+                <label for="signup-password">סיסמה:</label>
+                <input type="password" id="signup-password" name="password" placeholder="Password" required>
+            
+                <label for="signup-confirm-password">אישור סיסמה:</label>
+                <input type="password" id="signup-confirm-password" name="confirm-password" placeholder="Confirm password" required>
+            
+                <!-- שדה כתובת מגורים -->
+                <label for="signup-address">כתובת מגורים:</label>
+                <input type="text" id="signup-address" name="address" placeholder="Your Address" required>
+            
+                <button type="submit" class="btn primary-btn">הרשמה</button>
+            
+                <p class="switch-option">כבר רשום? <a href="#" onclick="toggleForm('login')">התחבר עכשיו</a></p>
+            </form>            
+
+            <div id="user-greeting" class="hidden">
+                <p id="welcome-message"></p>
+                <button id="logout-btn" class="btn primary-btn">יציאה</button> <!-- כפתור יציאה -->
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer"></footer>
+
+    <script src="/scripts.js"></script>
+    <script src="/login-signup.js"></script>
+</body>
+</html>

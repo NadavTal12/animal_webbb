@@ -1,0 +1,26 @@
+[
+  {
+    "uuid": "u001",
+    "email": "yossi.cohen@example.com",
+    "name": "Yossi Cohen",
+    "address": "12 Herzl St, Tel Aviv",
+    "password": "hashed_password_1",
+    "is_admin": false
+  },
+  {
+    "uuid": "u002",
+    "email": "noa.levi@example.com",
+    "name": "Noa Levi",
+    "address": "15 Rothschild Blvd, Haifa",
+    "password": "hashed_password_2",
+    "is_admin": false
+  },
+  {
+    "uuid": "u003",
+    "email": "admin@example.com",
+    "name": "Rami David",
+    "address": "20 Ben Yehuda St, Jerusalem",
+    "password": "hashed_password_3",
+    "is_admin": true
+  }
+]

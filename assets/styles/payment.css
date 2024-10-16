@@ -1,0 +1,53 @@
+#payment-wrapper {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 600px;
+    text-align: center;
+}
+
+#payment-form {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#payment-form .form-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#payment-form label {
+    width: 150px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+#payment-form input,
+#payment-form select {
+    flex: 1;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#shipping-address {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center; /* מרכז את הכתובת */
+}
+
+.btn.primary-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn.primary-btn:hover {
+    background-color: #218838;
+}

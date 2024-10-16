@@ -1,0 +1,17 @@
+[
+  {
+    "uuid": "c001",
+    "user": "u001",
+    "products": [
+      { "product_uuid": "p001", "quantity": 1 },
+      { "product_uuid": "p002", "quantity": 3 }
+    ]
+  },
+  {
+    "uuid": "c002",
+    "user": "u002",
+    "products": [
+      { "product_uuid": "p003", "quantity": 2 }
+    ]
+  }
+]

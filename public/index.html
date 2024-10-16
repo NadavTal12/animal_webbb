@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Inventory and Cart Management</title>
+    <script>
+        let selectedStoreId = null;
+        let userId = null;
+        let cartId = null; // Variable to store the actual cart_id
+
+        // Function to handle login
+        async function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            try {
+                const response = await fetch('/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    userId = result.user.uuid;
+                    localStorage.setItem('user_id', userId);
+                    alert('Login successful');
+                    displayStoreSelection();
+                } else {
+                    alert(result.error);
+                }
+            } catch (error) {
+                console.error('Error logging in:', error);
+            }
+        }
+
+        // Display store selection and fetch stores
+        async function displayStoreSelection() {
+            document.getElementById('storeSelection').style.display = 'block';
+
+            try {
+                const response = await fetch('/shops/list', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch stores: ${response.status} ${response.statusText}`);
+                }
+
+                const stores = await response.json();
+                console.log('Fetched stores:', stores); // Debug: log the fetched stores
+
+                const storeSelect = document.getElementById('storeSelect');
+
+                // Check if stores list is not empty
+                if (stores.length > 0) {
+                    // Populate the dropdown with stores
+                    storeSelect.innerHTML = stores.map(store => `<option value="${store.uuid}">${store.name || 'Unnamed Store'}</option>`).join('');
+                } else {
+                    storeSelect.innerHTML = '<option disabled>No stores available</option>';
+                }
+            } catch (error) {
+                console.error('Error fetching stores:', error);
+                alert('Failed to load stores.');
+            }
+        }
+
+        // Function to handle store selection
+        async function chooseStore() {
+            const storeSelect = document.getElementById('storeSelect');
+            selectedStoreId = storeSelect.value;
+            if (selectedStoreId) {
+                displayStoreInventory(selectedStoreId); // Show the store inventory for the selected store
+                getCart(); // Show the current cart contents
+            } else {
+                alert('Please select a store.');
+            }
+        }
+
+        // Display inventory for the selected store
+        async function displayStoreInventory(storeId) {
+            document.getElementById('storeInventory').style.display = 'block';
+
+            try {
+                const response = await fetch(`/shops/search?attribute=uuid&value=${storeId}`, {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch store inventory: ${response.status} ${response.statusText}`);
+                }
+
+                const shops = await response.json();
+                if (shops.length === 0) {
+                    throw new Error('Store not found');
+                }
+
+                const store = shops[0]; // Assuming the search returns an array with the matching store
+                console.log('Fetched store inventory:', store.inventory); // Debug: log the inventory
+
+                const inventoryList = document.getElementById('inventoryList');
+
+                // Check if the store has inventory
+                if (store.inventory && store.inventory.length > 0) {
+                    // Populate the inventory list
+                    inventoryList.innerHTML = store.inventory.map(item => `
+                        <li>
+                            Product ID: ${item.product_uuid} <br>
+                            Stock: ${item.amount_in_stock}
+                            <button onclick="addToCart('${item.product_uuid}')">Add to Cart</button>
+                            <button onclick="removeFromCart('${item.product_uuid}')">Remove from Cart</button>
+                        </li>
+                    `).join('');
+                } else {
+                    inventoryList.innerHTML = '<li>No inventory available</li>';
+                }
+            } catch (error) {
+                console.error('Error fetching store inventory:', error);
+                alert('Failed to load inventory.');
+            }
+        }
+
+        // Add a product to the cart
+        async function addToCart(productId) {
+            try {
+                const response = await fetch(`/cart/add_to_cart?user_id=${userId}&product_id=${productId}&shop_id=${selectedStoreId}`, {
+                    method: 'POST'
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Product added to cart');
+                    getCart(); // Refresh cart display to show current cart content
+                } else {
+                    alert(result.error);
+                }
+            } catch (error) {
+                console.error('Error adding to cart:', error);
+            }
+        }
+
+        // Remove a product from the cart
+        async function removeFromCart(productId) {
+            try {
+                const response = await fetch(`/cart/remove_from_cart?user_id=${userId}&product_id=${productId}`, {
+                    method: 'POST'
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Product removed from cart');
+                    getCart(); // Refresh cart display to show current cart content
+                } else {
+                    alert(result.error);
+                }
+            } catch (error) {
+                console.error('Error removing from cart:', error);
+            }
+        }
+
+        // Function to get and display cart contents
+        async function getCart() {
+            document.getElementById('cartContent').style.display = 'block';
+
+            try {
+                const response = await fetch(`/cart/get_cart?user_id=${userId}`, {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                const result = await response.json();
+                console.log('Fetched cart data:', result); // Debug: log the cart data
+
+                if (response.ok) {
+                    const cartList = document.getElementById('cartList');
+
+                    // Correctly extract product_id from each cart item
+                    if (result.cart && Array.isArray(result.cart.products)) {
+                        cartId = result.cart.uuid; // Store the correct cart_id
+                        cartList.innerHTML = result.cart.products.map(item => `
+                            <li>
+                                Product ID: ${item.product_id || 'ID Not Available'}
+                            </li>
+                        `).join('');
+                    } else {
+                        cartList.innerHTML = '<li>Your cart is empty.</li>';
+                    }
+                } else {
+                    alert(result.error);
+                }
+            } catch (error) {
+                console.error('Error getting cart:', error);
+            }
+        }
+
+        // Function to handle payment for the cart
+        async function payNow() {
+            if (!cartId) {
+                alert('No cart available for payment.');
+                return;
+            }
+
+            try {
+                const response = await fetch('/payment/user_pay', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ cart_id: cartId }) // Use the correct cart_id for payment
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Payment successful!');
+                    getCart(); // Refresh cart to show it's empty after payment
+                } else {
+                    alert(result.error);
+                }
+            } catch (error) {
+                console.error('Error processing payment:', error);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Store Inventory and Cart Management</h1>
+
+    <h2>Login</h2>
+    <form onsubmit="handleLogin(event)">
+        <label>Email: <input type="email" id="loginEmail" required></label><br>
+        <label>Password: <input type="password" id="loginPassword" required></label><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <div id="storeSelection" style="display:none;">
+        <h2>Select a Store</h2>
+        <select id="storeSelect">
+            <!-- Stores will be populated here -->
+        </select>
+        <button onclick="chooseStore()">Choose Store</button>
+    </div>
+
+    <div id="storeInventory" style="display:none;">
+        <h2>Store Inventory</h2>
+        <ul id="inventoryList">
+            <!-- Inventory will be listed here -->
+        </ul>
+    </div>
+
+    <div id="cartContent" style="display:none;">
+        <h2>Cart Contents</h2>
+        <ul id="cartList">
+            <!-- Cart items will be listed here -->
+        </ul>
+        <button onclick="payNow()">Pay Now</button>
+    </div>
+</body>
+</html>

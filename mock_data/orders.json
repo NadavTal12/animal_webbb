@@ -1,0 +1,19 @@
+[
+  {
+    "uuid": "o001",
+    "user": "u001",
+    "address": "12 Herzl St, Tel Aviv",
+    "products": [
+      { "product_uuid": "p001", "quantity": 1 },
+      { "product_uuid": "p002", "quantity": 3 }
+    ]
+  },
+  {
+    "uuid": "o002",
+    "user": "u002",
+    "address": "15 Rothschild Blvd, Haifa",
+    "products": [
+      { "product_uuid": "p003", "quantity": 2 }
+    ]
+  }
+]

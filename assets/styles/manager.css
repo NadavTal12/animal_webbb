@@ -1,0 +1,76 @@
+/* עיצוב הפרופיל של המנהל */
+#manager {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.manager-info {
+    margin-bottom: 30px;
+}
+
+.manager-info p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.edit-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.edit-btn i {
+    margin-left: 5px;
+}
+/* עיצוב הטבלה של ההזמנות */
+.manager-orders table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.manager-orders th, .manager-orders td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.manager-orders th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.manager-orders tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.manager-orders tr:hover {
+    background-color: #ddd;
+}
+
+/* עיצוב הטבלה של המשתמשים */
+.manager-users table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.manager-users th, .manager-users td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.manager-users th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.manager-users tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.manager-users tr:hover {
+    background-color: #ddd;
+}

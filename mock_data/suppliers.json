@@ -1,0 +1,17 @@
+[
+  {
+    "uuid": "s001",
+    "name": "Pet Supplies Co.",
+    "address": "21 Weizmann St, Tel Aviv"
+  },
+  {
+    "uuid": "s002",
+    "name": "Best Pet Toys Ltd.",
+    "address": "7 King George St, Haifa"
+  },
+  {
+    "uuid": "s003",
+    "name": "Aquatic World Ltd.",
+    "address": "8 Herzl St, Jerusalem"
+  }
+]
