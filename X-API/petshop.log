@@ -1,0 +1,7 @@
+Tweet posted successfully: {
+  data: {
+    edit_history_tweet_ids: [ '1854447607457652858' ],
+    id: '1854447607457652858',
+    text: `"Get your furry friends everything they need at our pet shop sale! From toys to treats, we've got it all at pawsitively unbeatable prices 🐾 Don't miss out on spoiling your pets today! #PetShopSale #SpoilYourPets"`
+  }
+}

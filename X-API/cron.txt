@@ -1,0 +1,2 @@
+0 9,21 * * * . $HOME/.nvm/nvm.sh && nvm use 18 && /usr/bin/env node /Users/emilyb/workspace/mystuff/scripts/petshop/twiter.mjs >> /Users/emilyb/workspace/petshop/petshop.log 2>&1
+
