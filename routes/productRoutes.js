@@ -4,6 +4,7 @@ const Product = require('../models/productModel');
 
 // Create Product
 router.post('/create', async (req, res) => {
+  console.log("Create request body:", req.body); // Debugging line
   try {
     const product = await Product.create(req.body);
     res.status(201).json(product);
@@ -11,6 +12,7 @@ router.post('/create', async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 });
+
 
 // Update Product
 router.put('/update', async (req, res) => {

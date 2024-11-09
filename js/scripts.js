@@ -42,6 +42,8 @@ function updateHeaderWithUserInfo() {
                 <li id="cart"><a href="/cart.html">עגלת קניות</a></li>
                 <li id="manager"><a href="/manager.html">אזור מנהל</a></li>
                 <li id="bi"><a href="/bi-and-stats.html">דוחות</a></li>
+                <li id="bi"><a href="/manager-products-edit.html">עדכן מוצרים</a></li>
+                <li id="bi"><a href="/supplier-management.html">עדכן ספקים</a></li>
                 <li id="search">
                     <div class="search-container">
                         <input type="text" class="search-input" placeholder="חיפוש" />

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PetStore</title>
+    <link rel="stylesheet" type="text/css" href="/styles/css-reset.css">
+    <link rel="stylesheet" type="text/css" href="/styles/common.css">
+    <link rel="stylesheet" type="text/css" href="/styles/supplier-management.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <header id="header"></header>
+
+    <main>
+        <section id="supplier-management">
+            <button id="open-add-supplier-btn">הוסף ספק חדש</button>
+            <div id="supplier-list"></div>
+        </section>
+
+        <!-- Modal for Add and Update Supplier Forms -->
+        <div id="supplier-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+
+                <!-- Add Supplier Form -->
+                <section id="add-supplier-section" style="display: none;">
+                    <h2>הוסף ספק חדש</h2>
+                    <form id="add-supplier-form">
+                        <label>uuid</label>
+                        <input type="text" id="new-uuid" required>
+
+                        <label>שם ספק:</label>
+                        <input type="text" id="new-supplier-name" required>
+                        
+                        <label>כתובת:</label>
+                        <input type="text" id="new-supplier-addr" required>
+                        
+                        <button type="submit">הוסף ספק</button>
+                    </form>
+                </section>
+
+                <!-- Update Supplier Form -->
+                <section id="update-supplier-section" style="display: none;">
+                    <h2>עדכן ספק</h2>
+                    <form id="update-supplier-form">
+                        <input type="hidden" id="update-supplier-uuid">
+                        
+                        <label>שם ספק:</label>
+                        <input type="text" id="update-supplier-name" required>
+                        
+                        <label>כתובת:</label>
+                        <input type="text" id="update-supplier-addr" required>
+                        
+                        <button type="submit">עדכן ספק</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <footer id="footer"></footer>
+
+    <script src="/scripts.js"></script>
+    <script src="/supplier-management.js"></script>
+ <!--   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPYrZCttAEU3igsKHZNfjeIlfy_AfMoTI&callback=initMap"></script>-->
+</body>
+</html>
