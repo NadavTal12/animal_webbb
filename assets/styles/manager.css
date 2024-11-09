@@ -1,5 +1,5 @@
 /* עיצוב הפרופיל של המנהל */
-#manager {
+#manager > *:not(ul) {
     margin: 0 auto;
     padding: 20px;
     max-width: 800px;

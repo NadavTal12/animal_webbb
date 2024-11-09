@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="he">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PetStore</title>
+		<link rel="stylesheet" type="text/css" href="/styles/css-reset.css">
+		<link rel="stylesheet" type="text/css" href="/styles/common.css">
+		<link rel="stylesheet" type="text/css" href="/styles/manager-products-edit.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	</head>
+
+	<body>
+		<header id="header"></header>
+
+        <main>
+            <section id="product-management">
+                <div id="manager-controlles">
+                    <h2>ניהול מוצרים</h2>
+                    <input type="text" id="product-search-input" placeholder="חפש מוצר..." />
+                    <button id="search-product-btn">חפש</button>
+                    <button id="open-add-product-btn">הוסף מוצר חדש</button>
+                </div>
+
+                <div id="product-list-manager"></div>
+
+            </section>
+
+            <!-- Modal for Add and Update Product Forms -->
+            <div id="product-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    
+                    <!-- Add Product Form -->
+                    <section id="add-product-section" style="display: none;">
+                        <h2>הוסף מוצר חדש</h2>
+                        <form id="add-product-form">
+                            <label>שם מוצר:</label>
+                            <input type="text" id="new-product-name" required>
+                            <label>תיאור:</label>
+                            <textarea id="new-product-description" required></textarea>
+                            <label>מחיר:</label>
+                            <input type="number"  step="0.01" id="new-product-price" required>
+                            <label>תמונה (URL):</label>
+                            <input type="text" id="new-product-image" required>
+                            <label>כמות נמכרה:</label>
+                            <input type="number" id="new-product-amount-sold" required>
+                            <label>ספק:</label>
+                            <input type="text" id="new-supplier" required>
+                            <button type="submit">הוסף מוצר</button>
+                        </form>
+                    </section>
+    
+                    <!-- Update Product Form -->
+                    <section id="update-product-section" style="display: none;">
+                        <h2>עדכן מוצר</h2>
+                        <form id="update-product-form">
+                            <input type="hidden" id="update-product-uuid">
+                            <label>שם מוצר:</label>
+                            <input type="text" id="update-product-name" required>
+                            <label>תיאור:</label>
+                            <textarea id="update-product-description" required></textarea>
+                            <label>מחיר:</label>
+                            <input type="number" step="0.01" id="update-product-price" required>
+                            <label>תמונה (URL):</label>
+                            <input type="text" id="update-product-image" required>
+                            <label>כמות נמכרה:</label>
+                            <input type="number" id="update-product-amount-sold" required>
+                            <label>ספק:</label>
+                            <input type="text" id="update-supplier" required>
+                            <button type="submit">עדכן מוצר</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </main>
+        
+		<footer id="footer"></footer>
+
+		<script src="/scripts.js"></script>
+        <script src="/manager-products-edit.js"></script>
+	</body>
+</html>

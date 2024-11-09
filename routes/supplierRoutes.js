@@ -62,7 +62,7 @@ router.put('/:uuid', async (req, res) => {
     const { name, addr } = req.body;
 
     // Update the supplier
-    const updated = await SupplierModel.update({ uuid }, { $set: { name, addr } });
+    const updated = await SupplierModel.update({ uuid }, { $set: { name, addr,uuid } });
     if (updated) {
       res.status(200).json({ message: 'Supplier updated successfully' });
     } else {
