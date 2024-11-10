@@ -1,0 +1,38 @@
+[{
+  "_id": {
+    "$oid": "672b7deec974dc1b5342ae58"
+  },
+  "uuid": "s001",
+  "name": "Pet Supplies Co",
+  "address": "21 Weizmann St, Tel Aviv",
+  "__v": 0,
+  "addr": "דוד סחרוב 3 ראשון לציון"
+},
+{
+  "_id": {
+    "$oid": "672b7deec974dc1b5342ae59"
+  },
+  "uuid": "s002",
+  "name": "Best Pet Toys Ltd",
+  "address": "7 King George St, Haifa",
+  "__v": 0,
+  "addr": "אורן 25 חיפה"
+},
+{
+  "_id": {
+    "$oid": "672b7deec974dc1b5342ae5a"
+  },
+  "uuid": "s003",
+  "name": "Aquatic World Ltd",
+  "address": "8 Herzl St, Jerusalem",
+  "__v": 0,
+  "addr": "אלנבי 81 תל אביב"
+},
+{
+  "_id": {
+    "$oid": "672ea326ca8c0cfaab40b491"
+  },
+  "uuid": "0ba2d923-d436-4c20-8b2d-229e830a8277",
+  "name": "4Pets Food and Snacks",
+  "addr": "שנקר 29 חולון"
+}]

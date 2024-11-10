@@ -1,0 +1,97 @@
+[{
+  "_id": {
+    "$oid": "672b7deec974dc1b5342ae5c"
+  },
+  "uuid": "s001",
+  "address": "1 Dizengoff St, Tel Aviv",
+  "inventory": [
+    {
+      "product_uuid": "p001",
+      "amount_in_stock": 20,
+      "_id": {
+        "$oid": "672b7deec974dc1b5342ae5d"
+      }
+    },
+    {
+      "product_uuid": "p002",
+      "amount_in_stock": 16,
+      "_id": {
+        "$oid": "672b7deec974dc1b5342ae5e"
+      }
+    },
+    {
+      "product_uuid": "p003",
+      "amount_in_stock": 30,
+      "_id": {
+        "$oid": "672b7deec974dc1b5342ae5f"
+      }
+    },
+    {
+      "product_uuid": "p004",
+      "amount_in_stock": 6,
+      "_id": {
+        "$oid": "672b7deec974dc1b5342ae5a"
+      }
+    },
+    {
+      "product_uuid": "p005",
+      "amount_in_stock": 45,
+      "_id": {
+        "$oid": "672b7deec974dc1b5342ae5b"
+      }
+    },
+    {
+      "product_uuid": "p006",
+      "amount_in_stock": 9,
+      "_id": {
+        "$oid": "672b7deec974dc1b5342ae5c"
+      }
+    },
+    {
+      "product_uuid": "p007",
+      "amount_in_stock": 42,
+      "_id": {
+        "$oid": "672b7deec974dc1b5342ae5d"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "672b7deec974dc1b5342ae5f"
+  },
+  "uuid": "s002",
+  "address": "10 HaYarkon St, Tel Aviv",
+  "inventory": [
+    {
+      "product_uuid": "p003",
+      "amount_in_stock": 30,
+      "_id": {
+        "$oid": "672b7deec974dc1b5342ae60"
+      }
+    },
+    {
+      "product_uuid": "p003",
+      "amount_in_stock": 30,
+      "_id": {
+        "$oid": "672b7deec974dc1b5342ae61"
+      }
+    },
+    {
+      "product_uuid": "p004",
+      "amount_in_stock": 6,
+      "_id": {
+        "$oid": "672b7deec974dc1b5342ae62"
+      }
+    },
+    {
+      "product_uuid": "p005",
+      "amount_in_stock": 45,
+      "_id": {
+        "$oid": "672b7deec974dc1b5342ae63"
+      }
+    }
+  ],
+  "__v": 0
+}]

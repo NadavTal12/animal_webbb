@@ -1,0 +1,26 @@
+{
+  "type": "Compass Connections",
+  "version": {
+    "$numberInt": "1"
+  },
+  "connections": [
+    {
+      "id": "52c7db67-8e8a-424a-8ca9-7d1abb48241f",
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1731256872719"
+        }
+      },
+      "favorite": {
+        "name": "localhost:27017"
+      },
+      "savedConnectionType": "recent",
+      "connectionOptions": {
+        "connectionString": "mongodb://localhost:27017/project_db",
+        "oidc": {
+          "serializedState": "eyJvaWRjUGx1Z2luU3RhdGVWZXJzaW9uIjowLCJzdGF0ZSI6W119"
+        }
+      }
+    }
+  ]
+}

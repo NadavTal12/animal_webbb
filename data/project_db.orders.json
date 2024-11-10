@@ -1,0 +1,111 @@
+[{
+  "_id": {
+    "$oid": "672b7deec974dc1b5342ae66"
+  },
+  "uuid": "o001",
+  "user": "u001",
+  "address": "24 Herzl St, Tel Aviv",
+  "products": [
+    {
+      "product_uuid": "p001",
+      "quantity": 1,
+      "_id": {
+        "$oid": "672b7deec974dc1b5342ae67"
+      }
+    },
+    {
+      "product_uuid": "p002",
+      "quantity": 3,
+      "_id": {
+        "$oid": "672b7deec974dc1b5342ae68"
+      }
+    }
+  ],
+  "date": "2024-09-05T05:03:26.058Z",
+  "price": 149.96,
+  "status": "ordered",
+  "shop": "s001"
+},
+{
+  "_id": {
+    "$oid": "672b7deec974dc1b5342ae69"
+  },
+  "uuid": "o002",
+  "user": "u002",
+  "address": "10 Rothschild Blvd, Haifa",
+  "products": [
+    {
+      "product_uuid": "p003",
+      "quantity": 2,
+      "_id": {
+        "$oid": "672b7deec974dc1b5342ae6a"
+      }
+    }
+  ],
+  "date": "2024-09-05T05:03:26.058Z",
+  "price": 299.98,
+  "shop": "s002",
+  "status": "ordered"
+},
+{
+  "_id": {
+    "$oid": "6730e75e851489bf9fa939c1"
+  },
+  "uuid": "o003",
+  "user": "u003",
+  "products": [
+    {
+      "product_uuid": "p001",
+      "quantity": 1
+    },
+    {
+      "product_uuid": "p001",
+      "quantity": 1
+    },
+    {
+      "product_uuid": "p002",
+      "quantity": 1
+    }
+  ],
+  "address": "20 Ben Yehuda St, Jerusalem",
+  "date": "2024-11-10T17:03:26.058Z",
+  "status": "ordered",
+  "price": 149.97,
+  "shop": "s001"
+},
+{
+  "_id": {
+    "$oid": "6730f47db08404b54da5d3fa"
+  },
+  "uuid": "c4f4bd6c-3963-4145-a157-070031113019",
+  "user": "u003",
+  "products": [
+    {
+      "product_uuid": "p001",
+      "quantity": 1
+    }
+  ],
+  "address": "20 Ben Yehuda St, Jerusalem",
+  "date": "2024-11-10T17:59:25.066Z",
+  "status": "ordered",
+  "price": 59.99,
+  "shop": "s001"
+},
+{
+  "_id": {
+    "$oid": "6730f8cfb08404b54da5d3fb"
+  },
+  "uuid": "3c87d4bd-d8c7-470a-a58b-44e3909512d1",
+  "user": "u003",
+  "products": [
+    {
+      "product_uuid": "p001",
+      "quantity": 1
+    }
+  ],
+  "address": "20 Ben Yehuda St, Jerusalem",
+  "date": "2024-11-10T18:17:51.893Z",
+  "status": "ordered",
+  "price": 59.99,
+  "shop": "s001"
+}]

@@ -1,0 +1,87 @@
+[{
+  "_id": {
+    "$oid": "672b7deec974dc1b5342ae62"
+  },
+  "uuid": "p001",
+  "name": "Dog Collar",
+  "description": "Adjustable leather collar for dogs",
+  "image": "dog-collar.png",
+  "price": 59.99,
+  "amount_sold": 24,
+  "supplier": "s001",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "672b7deec974dc1b5342ae63"
+  },
+  "uuid": "p002",
+  "name": "Cat Toy Mouse",
+  "description": "Interactive toy for cats, made with safe materials",
+  "image": "Cat-Toy-Mouse.png",
+  "price": 29.99,
+  "amount_sold": 36,
+  "supplier": "s001",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "672b7deec974dc1b5342ae64"
+  },
+  "uuid": "p003",
+  "name": "Aquarium Filter",
+  "description": "High-quality filter for medium-sized aquariums",
+  "image": "aquarium-filter.png",
+  "price": 149.99,
+  "amount_sold": 10,
+  "supplier": "s002",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "672e8ce2e18c36e1e1e1c61f"
+  },
+  "uuid": "p004",
+  "name": "PostCat Scratcher",
+  "description": "Scratching Post for you cat",
+  "price": 200,
+  "image": "cat-scratcher.png",
+  "amount_sold": 5,
+  "supplier": "s003"
+},
+{
+  "_id": {
+    "$oid": "672f30f47b2a870e97ffcb42"
+  },
+  "uuid": "d005",
+  "name": "Dog Treats",
+  "description": "Delicious treats for your dog",
+  "price": 12.99,
+  "image": "dog-treats.jpg",
+  "amount_sold": 50,
+  "supplier": "s003"
+},
+{
+  "_id": {
+    "$oid": "672f32f17b2a870e97ffcb43"
+  },
+  "uuid": "p006",
+  "name": "Cat Bed",
+  "description": "A comfy bed for your cat",
+  "price": 109.99,
+  "image": "cat-bed.jpg",
+  "amount_sold": 7,
+  "supplier": "s002"
+},
+{
+  "_id": {
+    "$oid": "673053e2908d10fb2c48930a"
+  },
+  "uuid": "p007",
+  "name": "Dog Food",
+  "description": "Deliciouce for you dog",
+  "price": 89.99,
+  "image": "dog-food.jpg",
+  "amount_sold": 60,
+  "supplier": "s002"
+}]
