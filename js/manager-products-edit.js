@@ -62,6 +62,20 @@ function displayProducts(products) {
     });
 }
 
+async function fetchShops() {
+    try {
+        const response = await fetch('/stores/list');
+        if (!response.ok) {
+            throw new Error('Failed to fetch shops');
+        }
+        const shops = await response.json();
+        const shopSelect = document.getElementById("shop-select");
+        shopSelect.innerHTML = shops.map(shop => `<option value="${shop.uuid}">${shop.address}</option>`).join('');
+    } catch (error) {
+        console.error("Error fetching shops:", error);
+    }
+}
+
 // Function to search products
 async function searchProduct() {
     const searchInput = document.getElementById("product-search-input").value.trim().toLowerCase();
@@ -164,7 +178,6 @@ async function addProduct(event) {
 
 // Show the update form with the product's current details
 function showUpdateForm(product) {
-    console.log("Opening update form for:", product); // Debugging line
     document.getElementById("update-product-uuid").value = product.uuid;
     document.getElementById("update-product-name").value = product.name;
     document.getElementById("update-product-description").value = product.description;
@@ -172,7 +185,8 @@ function showUpdateForm(product) {
     document.getElementById("update-product-image").value = product.image;
     document.getElementById("update-product-amount-sold").value = product.amount_sold;
     document.getElementById("update-supplier").value = product.supplier;
-
+    
+    fetchShops();
     openModal("update");
 }
 
@@ -181,7 +195,9 @@ async function updateProduct(event) {
     event.preventDefault();
 
     const uuid = document.getElementById("update-product-uuid").value;
-    
+    const shopUuid = document.getElementById("shop-select").value;
+    const newStock = parseInt(document.getElementById("update-amount-in-stock").value);
+
     const updatedProduct = {
         uuid,
         name: document.getElementById("update-product-name").value,
@@ -193,21 +209,32 @@ async function updateProduct(event) {
     };
 
     try {
-        const response = await fetch(`/products/update`, {
+        // Update product details
+        const productResponse = await fetch(`/products/update`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                filter: { uuid },           
+                filter: { uuid },
                 update: { $set: updatedProduct }
             }),
         });
 
-        if (response.ok) {
-            alert("מוצר עודכן בהצלחה!");
+        // Update inventory for the selected shop
+        const inventoryResponse = await fetch(`/stores/update`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                filter: { uuid: shopUuid, 'inventory.product_uuid': uuid },
+                update: { $set: { 'inventory.$.amount_in_stock': newStock } }
+            }),
+        });
+
+        if (productResponse.ok && inventoryResponse.ok) {
+            alert("מוצר והמלאי בחנות עודכנו בהצלחה!");
             fetchProducts();
             closeModal();
         } else {
-            console.error("Failed to update product");
+            console.error("Failed to update product or stock");
         }
     } catch (error) {
         console.error("Error updating product:", error);
