@@ -49,14 +49,16 @@ class Product extends AbstractModel {
 
   async update(filter, update) {
     // If the update includes product attributes, validate them
-    if (!update.$set) {
-      throw new Error(`Invalid update request`)
-      
+    if (update.$set) {
+      this.validateProduct(update.$set);
+      return super.update(filter, update);
     }
+    if (update.$inc) {
+      return super.update(filter, update);
+    }
+    throw new Error(`Invalid update request`);
     
-    this.validateProduct(update.$set);
 
-    return super.update(filter, update);
   }
 }
 

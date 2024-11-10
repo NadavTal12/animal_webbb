@@ -130,37 +130,63 @@ async function fetchUsersOrders() {
     }
 
     try {
-        // בקשה להיסטוריית ההזמנות מהשרת
-        const response = await fetch(`/orders/list`); // עדכן לכתובת הנכונה
+        const response = await fetch(`/orders/list`);
         if (!response.ok) {
             throw new Error('Failed to fetch orders');
         }
 
         const orders = await response.json();
         const ordersTableBody = document.querySelector('.manager-orders tbody');
-        ordersTableBody.innerHTML = ''; // ניקוי התוכן הקיים
+        ordersTableBody.innerHTML = '';
 
         if (orders.length === 0) {
             const noOrdersRow = document.createElement('tr');
-            noOrdersRow.innerHTML = '<td colspan="9">אין הזמנות להצגה.</td>'; // עדכון העמודה למספר העמודות
+            noOrdersRow.innerHTML = '<td colspan="9">אין הזמנות להצגה.</td>';
             ordersTableBody.appendChild(noOrdersRow);
         } else {
-            // הצגת חמש הזמנות ראשונות
             const firstFiveOrders = orders.slice(0, 5);
-            firstFiveOrders.forEach(order => {
+            const productNamesCache = {}; // Cache to store product names by UUID
+
+            for (const order of firstFiveOrders) {
+                const userResponse = await fetch(`/users/search?attribute=uuid&value=${order.user}`);
+                if (!userResponse.ok) {
+                    throw new Error('Failed to fetch user details');
+                }
+                
+                const [userData] = await userResponse.json();
+                const userName = userData.name || 'לא ידוע';
+
+                const productsWithNames = await Promise.all(order.products.map(async (product) => {
+                    // Check if product name is already cached
+                    if (productNamesCache[product.product_uuid]) {
+                        return `${productNamesCache[product.product_uuid]} (x${product.quantity})`;
+                    }
+
+                    // Fetch product name if not cached
+                    const productResponse = await fetch(`/products/search?attribute=uuid&value=${product.product_uuid}`);
+                    if (!productResponse.ok) {
+                        throw new Error('Failed to fetch product details');
+                    }
+
+                    const [productData] = await productResponse.json();
+                    const productName = productData.name || 'לא ידוע';
+                    productNamesCache[product.product_uuid] = productName; // Cache the product name
+                    return `${productName} (x${product.quantity})`;
+                }));
+
                 const totalUnits = order.products.reduce((total, product) => total + Number(product.quantity), 0);
-                const productDetails = order.products.map(product => `${product.name} (x${product.quantity})`).join(', ');
+                const productDetails = productsWithNames.join(', ');
 
                 const orderRow = document.createElement('tr');
                 orderRow.innerHTML = `
-                    <td>${order.userName || 'לא ידוע'}</td> <!-- הוסף את שם המשתמש כאן -->
+                    <td>${userName}</td>
                     <td>${new Date(order.date).toLocaleDateString()}</td>
                     <td>${order.products.length}</td>
                     <td>${totalUnits}</td>
                     <td>${productDetails}</td>
                     <td>${order.address || 'לא צוינה כתובת'}</td>
                     <td>${order.status || 'סטטוס לא ידוע'}</td>
-                    <td>₪${order.price.toFixed(2)}</td>
+                    <td>₪${(order.price ? order.price.toFixed(2) : '0.00')}</td>
                     <td>
                         <button class="order-confirmation-btn" data-order-id="${order.uuid}">
                             לאישור הזמנה
@@ -168,15 +194,14 @@ async function fetchUsersOrders() {
                     </td>
                 `;
                 ordersTableBody.appendChild(orderRow);
-            });
+            }
 
-            // הוספת כפתור להציג את שאר ההזמנות
             if (orders.length > 5) {
                 const showMoreButton = document.createElement('button');
                 showMoreButton.textContent = 'הצג עוד הזמנות';
                 showMoreButton.addEventListener('click', () => {
-                    showMoreOrders(orders, ordersTableBody);
-                    showMoreButton.style.display = 'none'; // הסתר את הכפתור לאחר הלחיצה
+                    showMoreOrders(orders, ordersTableBody, productNamesCache);
+                    showMoreButton.style.display = 'none';
                 });
                 ordersTableBody.appendChild(showMoreButton);
             }
@@ -193,7 +218,8 @@ function showMoreOrders(orders, ordersTableBody) {
     additionalOrders.forEach(order => {
         const totalUnits = order.products.reduce((total, product) => total + Number(product.quantity), 0);
         const productDetails = order.products.map(product => `${product.name} (x${product.quantity})`).join(', ');
-
+        console.log(order,totalUnits,productDetails);
+        
         const orderRow = document.createElement('tr');
         orderRow.innerHTML = `
             <td>${order.userName || 'לא ידוע'}</td>
@@ -203,7 +229,7 @@ function showMoreOrders(orders, ordersTableBody) {
             <td>${productDetails}</td>
             <td>${order.address || 'לא צוינה כתובת'}</td>
             <td>${order.status || 'סטטוס לא ידוע'}</td>
-            <td>₪${order.price.toFixed(2)}</td>
+            <td>₪${(order.price ? order.price.toFixed(2) : '0.00')}</td>
             <td>
                 <button class="order-confirmation-btn" data-order-id="${order.uuid}">
                     לאישור הזמנה
