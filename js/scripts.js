@@ -44,11 +44,6 @@ function updateHeaderWithUserInfo() {
                 <li id="bi"><a href="/bi-and-stats.html">דוחות</a></li>
                 <li id="bi"><a href="/manager-products-edit.html">עדכן מוצרים</a></li>
                 <li id="bi"><a href="/supplier-management.html">עדכן ספקים</a></li>
-                <li id="search">
-                    <div class="search-container">
-                        <input type="text" class="search-input" placeholder="חיפוש" />
-                    </div>
-                </li>
             </ul>`;
         } else {
             navContent = `
@@ -66,11 +61,6 @@ function updateHeaderWithUserInfo() {
                 <li id="about"><a href="/about-and-contact.html">אודות</a></li>
                 <li id="cart"><a href="/cart.html">עגלת קניות</a></li>
                 <li id="customer"><a href="/customer.html">אזור אישי</a></li>
-                <li id="search">
-                    <div class="search-container">
-                        <input type="text" class="search-input" placeholder="חיפוש" />
-                    </div>
-                </li>
             </ul>`;
         }
 
@@ -104,11 +94,6 @@ function updateHeaderWithUserInfo() {
                 <li id="cart"><a href="/cart.html">עגלת קניות</a></li>
                 <li id="login"><a href="/login-and signup.html">התחברות</a></li>
                 <li id="loging" style="display:none;"><a href="/customer.html">אזור אישי</a></li>
-                <li id="search">
-                    <div class="search-container">
-                        <input type="text" class="search-input" placeholder="חיפוש" />
-                    </div>
-                </li>
             </ul>`;
 
         userInfoElement.innerHTML = '';
@@ -128,3 +113,4 @@ document.addEventListener("DOMContentLoaded", function () {
     loadFile("/headet.html", "header");
     loadFile("/footer.html", "footer");
 });
+

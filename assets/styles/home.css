@@ -31,6 +31,13 @@
     margin-bottom: 26px;
 }
 
+canvas {
+    background-color: #F4F9F1;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
 #featured-products {
     padding: 40px 20px;
     text-align: center;
@@ -44,23 +51,25 @@
 
 .products-grid {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    text-align: center; 
 }
 
 .product {
     width: 30%;
     background-color: #F4F9F1; 
     padding: 20px;
-    border-radius: 8px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .product img {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 300px;
+    object-fit: scale-down;
     border-radius: 8px;
 }
 
@@ -88,6 +97,47 @@
 .product .btn:hover {
     background-color: #8FA090; 
 }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    z-index: 1000;
+}
+
+.modal-button {
+    margin: 10px 5px;
+    padding: 10px 15px;
+    background-color: #C9DFB9;
+    color: #252C2D;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.modal-button:hover {
+    background-color: #8FA090;
+}
+
 
 #categories {
     padding: 50px;

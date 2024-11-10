@@ -1,8 +1,9 @@
 // פונקציה ליצירת גרף עמודות
 function createBarChart(data, elementId, xLabel, yLabel) {
-    const margin = { top: 40, right: 20, bottom: 40, left: 50 };
-    const width = 600 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
+    const margin = { top: 50, right: 20, bottom: 50, left: 60 }; 
+    const width = 450 - margin.left - margin.right; 
+    const height = 410 - margin.top - margin.bottom; 
+    
 
     const svg = d3.select(`#${elementId}`)
         .append("svg")
@@ -23,10 +24,17 @@ function createBarChart(data, elementId, xLabel, yLabel) {
 
     svg.append("g")
         .attr("transform", `translate(0,${height})`)
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+        .attr("dy", "1em"); 
 
     svg.append("g")
-        .call(d3.axisLeft(y));
+        .call(d3.axisLeft(y)
+            .tickPadding(20) 
+        )
+        .selectAll("text")
+        .attr("dx", "-0.5em") 
+        .attr("dy", "0.25em");
 
     svg.selectAll(".bar")
         .data(data)
@@ -35,19 +43,21 @@ function createBarChart(data, elementId, xLabel, yLabel) {
         .attr("x", d => x(d.label))
         .attr("y", d => y(d.value))
         .attr("width", x.bandwidth())
-        .attr("height", d => height - y(d.value));
+        .attr("height", d => height - y(d.value))
+        .attr("fill", "#8FA090"); 
 
-    // Add labels
+    // Add x-axis label
     svg.append("text")
         .attr("x", width / 2)
-        .attr("y", height + margin.bottom)
+        .attr("y", height + margin.bottom - 10) 
         .attr("text-anchor", "middle")
         .text(xLabel);
 
+    // Add y-axis label
     svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("x", -height / 2)
-        .attr("y", -margin.left + 15)
+        .attr("y", -margin.left + 10) 
         .attr("text-anchor", "middle")
         .text(yLabel);
 }

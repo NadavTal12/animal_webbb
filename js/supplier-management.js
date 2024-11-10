@@ -21,7 +21,8 @@ async function fetchSuppliers() {
         if (!response.ok) throw new Error('Failed to fetch suppliers');
         const suppliers = await response.json();
         displaySuppliers(suppliers);
-        initAllMaps(suppliers);  // Call map initialization after suppliers display
+        
+        setTimeout(() => initAllMaps(suppliers), 100);
     } catch (error) {
         console.error('Error fetching suppliers:', error);
     }
@@ -67,7 +68,7 @@ function initMap(address, mapElementId) {
                 position: results[0].geometry.location
             });
         } else {
-            console.error('Geocode was not successful for the following reason: ' + status);
+            console.error(`Geocode failed for address: "${address}" with status: ${status}`);
             document.getElementById(mapElementId).innerText = "Location not found";
         }
     });
